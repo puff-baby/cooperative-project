@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防抖</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 800px;
+            height: 1200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box" style="background: tomato"></div>
+    <div class="box" style="background: skyblue"></div>
+    <div class="box" style="background: red"></div>
+    <div class="box" style="background: yellow"></div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let num = 0;
+        function scrollFunc(a, b) {
+            num++;
+            console.log('* ', num, a, b);
+        }
+        function debounce(fn, time, immediate) {
+            let timeOutId;
+            let callback;
+            function _debounce() {
+                clearTimeout(timeOutId);
+                timeOutId = setTimeout(() => fn(), time);
+            }
+            callback = immediate ? function () {
+                return typeof timeOutId === 'undefined' ? (timeOutId = 0, fn()) : _debounce();
+            } : _debounce;
+            return callback;
+        }
+
+        document.addEventListener('scroll', debounce(scrollFunc, 2000, true));
+    });
+</script>
+</body>
+</html>
