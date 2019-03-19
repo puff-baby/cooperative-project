@@ -9,7 +9,8 @@
 * hotfix 补丁分支，基于master
 
 ### 关于分支创建说明
-* 每个星期，我们从dev自己拉一个分支做功能开发，例如feature-node-test
+* 每个星期，我们从dev自己拉一个分支做功能开发，例如feature-lxy-node-test,
+  如果不知道怎么起名好，也可以按照feature-[姓名拼音简写]-[日期]来命名，例如feature-lxy-20190319
 * feature分支merge到dev没问题后记得删除
 * 关于commit的备注规范，我之后补充
 * 关于分支合并之后补充
